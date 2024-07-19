@@ -1,0 +1,252 @@
+<html>
+
+ <head>
+
+  <title>ExpertCredit</title>
+
+
+
+
+  <style>
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+
+a {
+    color: #0067A5; /* Цвет обычной ссылки */
+    padding: 2px; /* Поля вокруг текста */
+   }
+   a:hover {
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #FFFFF0; /* Цвет ссылки */ 
+    background: #8E4585; /* Цвет фона */
+   }
+
+
+
+
+ body {
+
+    font: 14px Arial, Helvetica, sans-serif; /* Рубленый шрифт текста */
+
+    margin: 0; /* Отступы на странице */
+
+   }
+
+   h1 {
+
+    font-size: 36px; /* Размер шрифта заголовка шапки */
+
+    margin: 0; /* Убираем отступы */
+
+    color: white; /* Цвет текста заголовка шапки */
+
+   }
+
+   h2 {
+
+    margin-top: 0; /* Убираем отступ сверху */
+
+   }
+
+   .header {
+
+    background: #151F75; /* Цвет фона шапки */
+
+    padding: 10px; /* Поля вокруг текста */
+
+   }
+
+   .sidebar {
+
+    float: right; /* Обтекание справа */
+
+    border: 1px solid #333; /* Рамка левого меню */
+
+    width: 20%; /* Ширина левой колонки */
+
+    padding: 5px; /* Поля внутри блока */
+
+    margin: 10px 10px 20px 5px; /* Значения отступа от блока */
+
+   }
+
+   .content {
+
+    margin: 10px 25% 20px 5px; /* Значения отступа от правого блока */
+
+    padding: 5px; /* Поля внутри блока */
+
+    border: 1px solid #333; /* Рамка контента */
+
+   }
+
+   .footer {
+
+    background: #333; /* Цвет фона подвал (футера) */
+
+    padding: 5px; /* Поля внутри блока */
+
+    color: #fff; /* Цвет текста футера */
+
+    clear: left; /* Отменяем действие float */
+
+   }
+
+  </style>
+
+ </head>
+
+
+ <body>
+
+  <div class="header"><h1>Скрипт помощник компании ExpertCredit <a href="#" style="float:right; margin-top: 0px; margin-right:0px;"><img src="expc.png"></a> </h1></div>
+
+  <div class="sidebar">
+
+    <p><a href="index.html">Главная</a></p>
+
+    <p><a href="closeconsult.html">Звонок для закрытия на консультацию</a></p>
+
+    <p><a href="quest.html">Вопросы и что входит в консультацию?</a></p>
+
+
+
+<p><a href="next.html">Переход на следующее действие/Возражение</a></p>
+<p><a href="theend.html">Дожим</a></p>
+
+<hr>
+<h3> Файлы: </h3>
+<a href="chek.pdf" download>Скачать чек лист</a>
+
+  <hr>
+<h3> кредитный калькулятор: </h3>
+<!-- Основной раздел с кредитным калькулятором -->
+    <section class="loan-calc">
+      <div class="container loan-calc__container">
+        <!-- Форма для ввода данных -->
+        <form action="#!" class="loan-calc__form" id="loan-calc-form">
+          <!-- Верхняя часть формы -->
+          <div class="loan-calc__top">
+            <!-- Заголовок калькулятора -->
+            <h2 class="loan-calc__title">Рассчитайте платеж по кредиту</h2>
+            <!-- Поля ввода данных -->
+            <div class="loan-calc__fields">
+              <!-- Поле ввода суммы кредита -->
+              <div class="loan-calc__input">
+                <label for="loan-amount">Сумма (в тенге)</label>
+                <input
+                  type="number"
+                  name="loan-amount"
+                  id="loan-amount"
+                  value="100000"
+                  min="10000"
+                  max="1000000"
+                />
+              </div>
+              <!-- Поле ввода процентной ставки -->
+              <div class="loan-calc__input">
+                <label for="loan-precent">Процентная ставка</label>
+                <input
+                  type="number"
+                  name="loan-precent"
+                  id="loan-precent"
+                  value="10"
+                  step="0.1"
+                  min="0"
+                  max="100"
+                />
+              </div>
+              <!-- Поле ввода срока кредита -->
+              <div class="loan-calc__input">
+                <label for="loan-term">Срок (в месяцах)</label>
+                <input
+                  type="number"
+                  name="loan-term"
+                  id="loan-term"
+                  value="24"
+                  min="1"
+                  max="300"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Нижняя часть формы -->
+          <div class="loan-calc__bottom">
+            <!-- Информационные блоки с результатами расчета -->
+            <div class="loan-calc__info">
+              <!-- Блок с ежемесячным платежом -->
+              <div class="loan-calc__out">
+                <span>Ежемесячный платеж</span>
+                <output id="loan-payment">100</output>
+              </div>
+              <!-- Блок с суммой переплат -->
+              <div class="loan-calc__out">
+                <span>Сумма переплат</span>
+                <output id="loan-over">10000</output>
+              </div>
+              <!-- Блок с общей суммой выплаты по кредиту -->
+              <div class="loan-calc__out">
+                <span>Общая сумма</span>
+                <output id="loan-total">10000</output>
+              </div>
+              <!-- Кнопка для запуска расчета -->
+              <div class="loan-calc__btn">
+                <button id="loan-btn">Рассчитать</button>
+              </div>
+            </div>
+            <!-- Блок для отображения графика -->
+            <div class="loan-calc__chart">
+              <canvas id="loan-chart"></canvas>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Подключение библиотеки Chart.js для отображения графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Подключение JavaScript файла с основным функционалом -->
+    <script src="./js/script.js"></script>
+</div>
+  <div class="content">
+
+    <h2>Переписка</h2>
+
+<p>
+Добрый день еще раз Асель. Мы с вами не 
+давно разговаривали,перезвоню вам через 2 часа? 
+</p>
+<hr>
+<p align="justify">Добрый день еще раз Канат. Записал вас на консультацию<br> 
+Мы находимся по адресу <br>
+Сатпаева 103/1 уг ул Егизбаева<br>
+БЦ Улжан<br>
+5 этаж<br>
+Expert Credit<br>
+https://2gis.kz/almaty/geo/70000001065238061</p>
+<hr>
+
+
+<p align="justify">Добрый день еще раз Айдана. Скажите,почему вы не хотите записаться на консультацию?</p>
+<hr>
+<p align="justify">Добрый день еще раз Гульнар! <br>
+Вопрос ипотеки возможно позже будет для вас актуален! Не теряйте нас <br>
+https://www.instagram.com/kanat_expert?igsh=NXJ2a2RhbGV4dDc3<br>
+Готов ответить на все вопросы?!</p>
+<hr>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  </div>
+
+  <div class="footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Ильяр Арзуев   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     TOO "ExpertCredit"</div>
+
+ </body>
+
+</html>

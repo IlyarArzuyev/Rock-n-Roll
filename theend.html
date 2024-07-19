@@ -1,0 +1,236 @@
+<html>
+
+ <head>
+
+  <title>ExpertCredit</title>
+
+  <style>
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+
+a {
+    color: #0067A5; /* Цвет обычной ссылки */
+    padding: 2px; /* Поля вокруг текста */
+   }
+   a:hover {
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #FFFFF0; /* Цвет ссылки */ 
+    background: #8E4585; /* Цвет фона */
+   }
+
+
+ body {
+
+    font: 14px Arial, Helvetica, sans-serif; /* Рубленый шрифт текста */
+
+    margin: 0; /* Отступы на странице */
+
+   }
+
+   h1 {
+
+    font-size: 36px; /* Размер шрифта заголовка шапки */
+
+    margin: 0; /* Убираем отступы */
+
+    color: white; /* Цвет текста заголовка шапки */
+
+   }
+
+   h2 {
+
+    margin-top: 0; /* Убираем отступ сверху */
+
+   }
+
+   .header {
+
+    background: #151F75; /* Цвет фона шапки */
+
+    padding: 10px; /* Поля вокруг текста */
+
+   }
+
+   .sidebar {
+
+    float: right; /* Обтекание справа */
+
+    border: 1px solid #333; /* Рамка левого меню */
+
+    width: 20%; /* Ширина левой колонки */
+
+    padding: 5px; /* Поля внутри блока */
+
+    margin: 10px 10px 20px 5px; /* Значения отступа от блока */
+
+   }
+
+   .content {
+
+    margin: 10px 25% 20px 5px; /* Значения отступа от правого блока */
+
+    padding: 5px; /* Поля внутри блока */
+
+    border: 1px solid #333; /* Рамка контента */
+
+   }
+
+   .footer {
+
+    background: #333; /* Цвет фона подвал (футера) */
+
+    padding: 5px; /* Поля внутри блока */
+
+    color: #fff; /* Цвет текста футера */
+
+    clear: left; /* Отменяем действие float */
+
+   }
+
+  </style>
+
+ </head>
+
+ <body>
+
+  <div class="header"><h1>Скрипт помощник компании ExpertCredit <a href="#" style="float:right; margin-top: 0px; margin-right:0px;"><img src="expc.png"></a> </h1></div>
+
+  <div class="sidebar">
+<p><a href="index.html">Главная</a></p>
+
+    <p><a href="closeconsult.html">Звонок для закрытия на консультацию</a></p>
+
+    <p><a href="writesite.html">Перепискa</a></p>
+
+    <p><a href="quest.html">Вопросы и что входит в консультацию?</a></p>
+
+<p><a href="next.html">Переход на следующее действие/Возражение</a></p>
+
+<hr>
+<h3> Файлы: </h3>
+<a href="chek.pdf" download>Скачать чек лист</a>
+<hr>
+<!-- Основной раздел с кредитным калькулятором -->
+    <section class="loan-calc">
+      <div class="container loan-calc__container">
+        <!-- Форма для ввода данных -->
+        <form action="#!" class="loan-calc__form" id="loan-calc-form">
+          <!-- Верхняя часть формы -->
+          <div class="loan-calc__top">
+            <!-- Заголовок калькулятора -->
+            <h2 class="loan-calc__title">Рассчитайте платеж по кредиту</h2>
+            <!-- Поля ввода данных -->
+            <div class="loan-calc__fields">
+              <!-- Поле ввода суммы кредита -->
+              <div class="loan-calc__input">
+                <label for="loan-amount">Сумма (в тенге)</label>
+                <input
+                  type="number"
+                  name="loan-amount"
+                  id="loan-amount"
+                  value="100000"
+                  min="10000"
+                  max="1000000"
+                />
+              </div>
+              <!-- Поле ввода процентной ставки -->
+              <div class="loan-calc__input">
+                <label for="loan-precent">Процентная ставка</label>
+                <input
+                  type="number"
+                  name="loan-precent"
+                  id="loan-precent"
+                  value="10"
+                  step="0.1"
+                  min="0"
+                  max="100"
+                />
+              </div>
+              <!-- Поле ввода срока кредита -->
+              <div class="loan-calc__input">
+                <label for="loan-term">Срок (в месяцах)</label>
+                <input
+                  type="number"
+                  name="loan-term"
+                  id="loan-term"
+                  value="24"
+                  min="1"
+                  max="300"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Нижняя часть формы -->
+          <div class="loan-calc__bottom">
+            <!-- Информационные блоки с результатами расчета -->
+            <div class="loan-calc__info">
+              <!-- Блок с ежемесячным платежом -->
+              <div class="loan-calc__out">
+                <span>Ежемесячный платеж</span>
+                <output id="loan-payment">100</output>
+              </div>
+              <!-- Блок с суммой переплат -->
+              <div class="loan-calc__out">
+                <span>Сумма переплат</span>
+                <output id="loan-over">10000</output>
+              </div>
+              <!-- Блок с общей суммой выплаты по кредиту -->
+              <div class="loan-calc__out">
+                <span>Общая сумма</span>
+                <output id="loan-total">10000</output>
+              </div>
+              <!-- Кнопка для запуска расчета -->
+              <div class="loan-calc__btn">
+                <button id="loan-btn">Рассчитать</button>
+              </div>
+            </div>
+            <!-- Блок для отображения графика -->
+            <div class="loan-calc__chart">
+              <canvas id="loan-chart"></canvas>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Подключение библиотеки Chart.js для отображения графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Подключение JavaScript файла с основным функционалом -->
+    <script src="./js/script.js"></script>
+
+
+  </div>
+
+  <div class="content">
+
+    <h2>Дожим клиента</h2>
+
+<p>
+<strong><big><p align="justify">Дожим клиента – это важный этап в продажах, когда нужно окончательно убедить клиента в выгоде вашего предложения и подтолкнуть его к принятию решения.
+<br><br>Примеры: </strong></big>
+<br>
+
+<p align="justify">Смотрите,я понимаю, что вы хотите все тщательно обдумать. Просто обратите внимание что наш текущий вариант с пониженной процентной ставкой действует на определенный период. Если вы оформите заявку сейчас, вы сможете воспользоваться выгодными условиями (несколько выгодных условии) распишу чуть позже,надо вникнуть 
+<br><br>
+Конечно. Чтобы вы не торопились с решением, я предлагаю забронировать для вас цену на квартиру. Мы можем оформить предварительную заявку,внести предоплату,начать процесс и у вас будет время обдумать все детали. Это сохранит для вас текущие выгодные условия. Как вам такое предложение?
+<br><br>
+<strong><big>ПРИМЕР ДЛЯ КОНСУЛЬТАЦИИ: </strong></big><br><br>
+Давайте сделаем так: я проведу для вас детальный расчет ежемесячных платежей по выбранной программе. Посмотрим одобрения банка,посчитаем все вместе. Вы сможете видеть, как это отразится на вашем бюджете. Также, мы можем обсудить возможные банковские расходы,риски при самостоятельном оформлении, что дополнительно снизит ваши затраты. Когда вам будет удобно обсудить это на консультации?
+<br><br>
+Смотрите,вы ведь не просто так к нам пришли? Вас же что то беспокоило,была проблема с которой вы сталкивались. Возможно это по поводу сбора всех необходимых документов,либо отказ банка. Мы предоставляем консультацию и услугу сопровождения на всех этапах оформления ипотеки. Наш специалист поможет вам собрать все документы и проконтролирует процесс их подачи. Также заранее посмотрим все кредитную историю и уже будем понимать наши шансы на ипотеку. Это ведь выгоднее чем все делать одному и в разных источниках,согласны? 
+<br><br>
+
+
+</div>
+  
+<br><br><br><br><br><br><br><br><br><br><br>
+ <div class="footer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; Ильяр Арзуев   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     TOO "ExpertCredit"</div>
+
+
+ </body>
+
+</html>
